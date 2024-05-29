@@ -1,5 +1,5 @@
 resource "azurerm_windows_virtual_machine" "vmcode" {
-  for_each = var.vmsetup
+  for_each = var.vm
   name                = each.value.virtual_machine_name
   resource_group_name = each.value.resource_group_name
   location            = each.value.location
@@ -25,7 +25,7 @@ resource "azurerm_windows_virtual_machine" "vmcode" {
 }
 
 resource "azurerm_virtual_machine_extension" "vm_extension_install_iis" {
-  for_each = var.vmsetup
+  for_each = var.vm
   name                       = "vm_extension_install_iis"
   virtual_machine_id         = azurerm_windows_virtual_machine.vmcode[each.key].id
   publisher                  = "Microsoft.Compute"

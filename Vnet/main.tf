@@ -1,5 +1,5 @@
 resource "azurerm_virtual_network" "vadavnet" {
-  for_each            = var.VMVnet
+  for_each            = var.Vnet
   name                = each.value.name
   location            = data.azurerm_resource_group.datarg[each.key].location
   resource_group_name = data.azurerm_resource_group.datarg[each.key].name

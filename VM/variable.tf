@@ -1,4 +1,4 @@
-variable "vmsetup" {
+variable "vm" {
     type = map(any)
   
 }

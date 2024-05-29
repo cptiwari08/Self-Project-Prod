@@ -1,5 +1,5 @@
 resource "azurerm_storage_account" "vkstoragee" {
-  for_each                 = var.vkst
+  for_each                 = var.stg
   name                     = each.value.name
   resource_group_name      = data.azurerm_resource_group.datarg[each.key].name
   location                 = data.azurerm_resource_group.datarg[each.key].location
